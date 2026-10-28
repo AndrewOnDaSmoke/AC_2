@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoWo Chemie Mannheim | AC Teil 2 – 90%+ Masterguide</title>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-subtle: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #0284c7;
+            --primary-light: #e0f2fe;
+            --accent: #4f46e5;
+            --accent-light: #e0e7ff;
+            --success: #16a34a;
+            --success-bg: #dcfce7;
+            --warning: #d97706;
+            --warning-bg: #fef3c7;
+            --danger: #dc2626;
+            --danger-bg: #fee2e2;
+            --border: #e2e8f0;
+            --radius: 10px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.56;
+            padding-bottom: 4rem;
+        }
+
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand { display: flex; align-items: center; gap: 0.75rem; }
+
+        .badge-target {
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
+
+        nav { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        nav a:hover { background: var(--bg-subtle); color: var(--primary); }
+
+        .btn-download {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-download:hover { opacity: 0.9; }
+
+        .container { max-width: 1240px; margin: 2rem auto; padding: 0 1.5rem; }
+
+        .intro-banner {
+            background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .intro-banner h2 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+        .intro-banner p { font-size: 0.94rem; opacity: 0.95; max-width: 900px; }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .section-freq {
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.3rem 1.45rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; color: var(--text-main); }
+        .card h4 { font-size: 0.95rem; font-weight: 700; margin: 0.95rem 0 0.35rem; color: var(--primary); }
+
+        .box {
+            padding: 0.85rem 1.05rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            font-size: 0.89rem;
+            border-left: 4px solid;
+        }
+
+        .box-trap { background: var(--danger-bg); border-left-color: var(--danger); color: #7f1d1d; }
+        .box-shortcut { background: var(--success-bg); border-left-color: var(--success); color: #14532d; }
+        .box-info { background: var(--primary-light); border-left-color: var(--primary); color: #0c4a6e; }
+        .box-warn { background: var(--warning-bg); border-left-color: var(--warning); color: #78350f; }
+
+        .box-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.74rem;
+            letter-spacing: 0.04em;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0.7rem 0; }
+        th, td { text-align: left; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+        th { background: var(--bg-subtle); font-weight: 700; color: var(--text-main); }
+        tr:last-child td { border-bottom: none; }
+
+        ul, ol { padding-left: 1.2rem; margin: 0.45rem 0; font-size: 0.9rem; }
+        li { margin-bottom: 0.35rem; }
+
+        code {
+            font-family: Consolas, Monaco, monospace;
+            background: var(--bg-subtle);
+            padding: 0.12rem 0.38rem;
+            border-radius: 4px;
+            font-size: 0.88em;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .formula-block {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            margin: 0.55rem 0;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        details.quiz {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.7rem 0.95rem;
+            margin-top: 0.7rem;
+            font-size: 0.89rem;
+        }
+
+        details.quiz summary { font-weight: 700; cursor: pointer; color: var(--primary); }
+        details.quiz .ans { margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px dashed var(--border); }
+
+        .pill {
+            display: inline-block;
+            padding: 0.1rem 0.42rem;
+            border-radius: 4px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .svg-container {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin: 0.75rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <span class="badge-target">VoWo Mannheim</span>
+            <h1>Anorganische Chemie – Teil 2</h1>
+        </div>
+        <nav>
+            <a href="#redox">6. OZ, Redox &amp; Nernst</a>
+            <a href="#energetik">7. Energetik &amp; Le Chatelier</a>
+            <a href="#kl-komplexe">8. Löslichkeit &amp; Komplexe</a>
+            <a href="#saeuren">9. Säuren, Basen &amp; Puffer</a>
+            <button class="btn-download" onclick="downloadHTML()">⬇ Als .html speichern</button>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="intro-banner">
+        <h2>AC Teil 2: Oxidationszahlen, Redox, Nernst, Gleichgewicht, Komplexe &amp; Puffer</h2>
+        <p>Komplett sauberes HTML ohne LaTeX-Code: Hier findest du alle Rechenrezepte und Schnell-Checks für Oxidationszahlen, Redox-Koeffizienten, Nernst-Potentiale, Energiediagramme, Le Chatelier, Löslichkeitsprodukt (K<sub>L</sub>), Komplexchemie (KZ &amp; OZ) sowie pH-Werte, Puffer und Titrationskurven.</p>
+    </div>
+
+    <!-- KAPITEL 6 -->
+    <div class="section-title" id="redox">
+        <span>6. Oxidationszahlen (OZ), Redox-Gleichungen &amp; Nernst</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Oxidationszahlen (OZ) – Regeln &amp; Klausur-Klassiker</h3>
+            <p style="font-size: 0.9rem;">Strikte Prioritätsfolge (Summe aller OZ = Gesamtladung des Moleküls/Ions):</p>
+            <ol style="font-size: 0.88rem;">
+                <li><strong>Elemente im Grundzustand</strong> (O<sub>2</sub>, Cl<sub>2</sub>, Fe, Zn, Cu, S): immer <strong>0</strong>.</li>
+                <li><strong>Metalle &amp; Fluor:</strong> Alkalimetalle (Li, Na, K) = <strong>+I</strong> | Erdalkalimetalle (Mg, Ca, Ba) = <strong>+II</strong> | Al = <strong>+III</strong> | Fluor (F) = immer <strong>−I</strong>.</li>
+                <li><strong>Wasserstoff (H):</strong> <strong>+I</strong> (Ausnahme: Metallhydride wie NaH &rarr; −I).</li>
+                <li><strong>Sauerstoff (O):</strong> <strong>−II</strong> (Ausnahme: Peroxide wie H<sub>2</sub>O<sub>2</sub> &rarr; −I).</li>
+                <li><strong>Halogene (Cl, Br, I):</strong> <strong>−I</strong>, <em>außer</em> gebunden an Sauerstoff! In <strong>HOCl</strong> hat Cl die OZ <strong>+I</strong> (Klausur 2011 #22), in HIO<sub>3</sub> und IO<sub>3</sub><sup>−</sup> hat I die OZ <strong>+V</strong>!</li>
+            </ol>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Alle Klausur-Oxidationszahlen zum Sofort-Abhaken</span>
+                <ul>
+                    <li><strong>Mangan &amp; Chrom:</strong><br>
+                    • <strong>KMnO<sub>4</sub> (Kaliumpermanganat):</strong> K = +I, 4&times;O = −8 &rarr; <strong>Mn = +VII (+7)</strong> (5x in Klausuren! Nicht +VI!).<br>
+                    • <strong>MnO<sub>2</sub>:</strong> <strong>Mn = +IV (+4)</strong>.<br>
+                    • <strong>Na<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>, K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> &amp; K<sub>2</sub>CrO<sub>4</sub>:</strong> <strong>Cr = +VI (+6)</strong> (2020, 2023, 2024).</li>
+                    <li><strong>Stickstoff-Reihe (2015, 2019, 2021, 2023, 2024):</strong><br>
+                    • <strong>HNO<sub>3</sub> &amp; KNO<sub>3</sub> (Nitrat):</strong> <strong>N = +V</strong><br>
+                    • <strong>NO<sub>2</sub>:</strong> <strong>N = +IV</strong><br>
+                    • <strong>HNO<sub>2</sub> (Salpetrige Säure):</strong> <strong>N = +III</strong><br>
+                    • <strong>NO:</strong> <strong>N = +II</strong><br>
+                    • <strong>NH<sub>3</sub>, NH<sub>4</sub><sup>+</sup> &amp; ALLE organischen Amine</strong> (Trimethylamin N(CH<sub>3</sub>)<sub>3</sub>, Dimethylanilin): <strong>N = −III</strong> (weil N elektronegativer als C und H ist!).</li>
+                    <li><strong>Schwefel-Reihe (2017, 2018):</strong><br>
+                    • <strong>H<sub>2</sub>S (Schwefelwasserstoff):</strong> <strong>S = −II</strong><br>
+                    • <strong>Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> (Thiosulfat):</strong> <strong>S = +II</strong><br>
+                    • <strong>SO<sub>2</sub> &amp; HSO<sub>3</sub><sup>−</sup>:</strong> <strong>S = +IV</strong><br>
+                    • <strong>H<sub>2</sub>SO<sub>4</sub> (Schwefelsäure):</strong> <strong>S = +VI</strong>.</li>
+                    <li><strong>Kohlenstoff &amp; Phosphor:</strong> <strong>CO<sub>3</sub><sup>2−</sup> &amp; CO<sub>2</sub>:</strong> <strong>C = +IV</strong> (2025 #8) | <strong>H<sub>3</sub>PO<sub>4</sub>:</strong> <strong>P = +V</strong> (2009/2011 #17).</li>
+                </ul>
+            </div>
+
+            <div class="box box-info">
+                <span class="box-title">OZ in organischen Molekülen (Seminar-Aufgabe 32 e–h)</span>
+                <p>Bindung C–C zählt 0, Bindung zu H gibt dem C <code>−1</code>, Bindung zu O gibt dem C <code>+1</code>:<br>
+                • <strong>Methan (CH<sub>4</sub>):</strong> C = <strong>−IV</strong> | <strong>Formaldehyd (H<sub>2</sub>C=O):</strong> C = <strong>0</strong><br>
+                • <strong>Ethanol (H<sub>3</sub>C<sup>1</sup>–C<sup>2</sup>H<sub>2</sub>OH):</strong> C<sup>1</sup> = <strong>−III</strong>, C<sup>2</sup> = <strong>−I</strong><br>
+                • <strong>Essigsäure (H<sub>3</sub>C<sup>1</sup>–C<sup>2</sup>OOH):</strong> C<sup>1</sup> = <strong>−III</strong>, C<sup>2</sup> = <strong>+III</strong>.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Redox-Gleichungen ausgleichen &amp; Nernst-Gleichung</h3>
+            <p style="font-size: 0.9rem;"><strong>Definition (2009/2011 #25):</strong> Bei einer <strong>Oxidation</strong> werden Elektronen <strong>abgegeben</strong> und die Oxidationszahl <strong>erhöht sich (&uarr;)</strong>. Bei einer <strong>Reduktion</strong> werden Elektronen aufgenommen und die OZ sinkt (&darr;).<br>
+            <em>Klausur 2009 #7:</em> Pyruvat (Brenztraubensäure, C=O) und Lactat (Milchsäure, CH–OH) haben unterschiedliche Summenformeln (+2 H) &rarr; sie sind ein <strong>Redoxpaar</strong> (keine Isomere!).</p>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Die 4 Redox-Gleichungen der Altklausuren (Koeffizienten-Summen!)</span>
+                <ol>
+                    <li><strong>Klausur 2025 #3:</strong> <code>a I<sub>2</sub> + b Cl<sub>2</sub> + c H<sub>2</sub>O &rarr; x HIO<sub>3</sub> + y HCl</code><br>
+                    I<sub>2</sub> (0 &rarr; +V) gibt 10 e<sup>−</sup> ab; Cl<sub>2</sub> (0 &rarr; −I) nimmt 2 e<sup>−</sup> auf &rarr; Faktor 5 vor Cl<sub>2</sub>!<br>
+                    Gleichung: <strong>1</strong> I<sub>2</sub> + <strong>5</strong> Cl<sub>2</sub> + <strong>6</strong> H<sub>2</sub>O &rarr; 2 HIO<sub>3</sub> + 10 HCl. Summe <code>a + b + c = 1 + 5 + 6 = <strong>12</strong></code>.</li>
+                    <li><strong>Klausur 2023/2024:</strong> <code>a Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> + b HCl &rarr; 2 NaCl + H<sub>2</sub>O + S + SO<sub>2</sub></code><br>
+                    Gleichung: <strong>1</strong> Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> + <strong>2</strong> HCl. Summe <code>a + b = 1 + 2 = <strong>3</strong></code>.</li>
+                    <li><strong>Klausur 2020/2021:</strong> <code>x KMnO<sub>4</sub> + y H<sub>2</sub>O<sub>2</sub> + z H<sub>2</sub>SO<sub>4</sub> &rarr; 2 MnSO<sub>4</sub> + 5 O<sub>2</sub> + 8 H<sub>2</sub>O + K<sub>2</sub>SO<sub>4</sub></code><br>
+                    Mn (+7 &rarr; +2: 5 e<sup>−</sup>), H<sub>2</sub>O<sub>2</sub> (−1 &rarr; 0: 2 e<sup>−</sup>) &rarr; kgV = 10 &rarr; <strong>2</strong> KMnO<sub>4</sub> + <strong>5</strong> H<sub>2</sub>O<sub>2</sub> + <strong>3</strong> H<sub>2</sub>SO<sub>4</sub>. Summe <code>x + y + z = 2 + 5 + 3 = <strong>10</strong></code>.</li>
+                    <li><strong>Klausur 2015 #3 &amp; Sem 33c:</strong> <code>x Cu + y NO<sub>3</sub><sup>−</sup> + z H<sub>3</sub>O<sup>+</sup> &rarr; 3 Cu<sup>2+</sup> + 2 NO + 12 H<sub>2</sub>O</code><br>
+                    Cu (0 &rarr; +2: 2 e<sup>−</sup>), N (+5 &rarr; +2: 3 e<sup>−</sup>) &rarr; kgV = 6 &rarr; <strong>3</strong> Cu + <strong>2</strong> NO<sub>3</sub><sup>−</sup> + <strong>8</strong> H<sub>3</sub>O<sup>+</sup>. Summe <code>x + y + z = 3 + 2 + 8 = <strong>13</strong></code>.</li>
+                </ol>
+            </div>
+
+            <div class="formula-block">
+                Nernst: E = E<sup>0</sup> + (0,059 V / z) &middot; lg( [Ox] / [Red] )
+            </div>
+
+            <ul style="font-size: 0.88rem;">
+                <li><strong>Cu<sup>2+</sup>/Cu (E<sup>0</sup> = +0,35 V) bei c(Cu<sup>2+</sup>) = 0,01 mol/L (2019–2021):</strong><br>
+                <code>z = 2</code>, Feststoff Cu = 1, <code>lg(0,01) = −2</code> &rarr; <code>E = 0,35 + (0,059 / 2) &middot; (−2) = 0,35 − 0,059 = <strong>+0,29 V</strong></code>.<br>
+                <em>(Analog für Zn<sup>2+</sup>/Zn mit E<sup>0</sup> = −0,76 V bei 0,01 M [Seminar 40b]: <code>−0,76 − 0,059 = <strong>−0,82 V</strong></code>).</em></li>
+                <li><strong>Permanganat (MnO<sub>4</sub><sup>−</sup> + 8 H<sup>+</sup> + 5 e<sup>−</sup> &rarr; Mn<sup>2+</sup> + 4 H<sub>2</sub>O, z = 5):</strong><br>
+                • <strong>Bei pH 7</strong> und gleichen Konzentrationen c = 0,1 M (2017/2018):<br>
+                <code>E = 1,51 + (0,059 / 5) &middot; lg((10<sup>−7</sup>)<sup>8</sup>) = 1,51 + 0,0118 &middot; (−56) = 1,51 − 0,66 = <strong>0,85 V</strong></code>.<br>
+                • <strong>Bei pH 2</strong>, c(MnO<sub>4</sub><sup>−</sup>) = 0,2 M, c(Mn<sup>2+</sup>) = 0,01 M (2025 #2):<br>
+                <code>E = 1,50 + 0,0118 &middot; lg(0,2 &middot; 10<sup>−16</sup> / 0,01) = 1,50 − 0,17 = <strong>+1,33 V</strong></code>.</li>
+                <li><strong>Seminar 34 (Daniell-Element Zn/Cu bei je 0,1 M):</strong> <code>&Delta;E = +0,34 V − (−0,76 V) = <strong>1,10 V</strong></code>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- KAPITEL 7 -->
+    <div class="section-title" id="energetik">
+        <span>7. Energetik, Kinetik &amp; Prinzip von Le Chatelier</span>
+        <span class="section-freq">In 95% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Energiediagramme lesen (Seminar 41–43 &amp; Klausur)</h3>
+            <div class="svg-container">
+                <svg viewBox="0 0 500 210" width="100%" height="auto">
+                    <line x1="40" y1="185" x2="470" y2="185" stroke="#0f172a" stroke-width="2"/>
+                    <line x1="40" y1="185" x2="40" y2="15" stroke="#0f172a" stroke-width="2"/>
+                    <text x="15" y="100" transform="rotate(-90 15,100)" font-size="11" font-weight="bold">Energie (H / G)</text>
+                    <text x="355" y="203" font-size="11" font-weight="bold">Reaktionsverlauf</text>
+
+                    <line x1="40" y1="105" x2="360" y2="105" stroke="#94a3b8" stroke-dasharray="4"/>
+                    <line x1="40" y1="32" x2="260" y2="32" stroke="#94a3b8" stroke-dasharray="4"/>
+                    <line x1="40" y1="160" x2="450" y2="160" stroke="#94a3b8" stroke-dasharray="4"/>
+
+                    <path d="M 50 105 L 120 105 C 160 105, 180 32, 220 32 C 260 32, 280 160, 330 160 L 440 160" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+                    <path d="M 120 105 C 160 105, 185 68, 220 68 C 255 68, 280 160, 330 160" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="5,3"/>
+
+                    <text x="55" y="98" font-size="11" font-weight="bold">Edukte</text>
+                    <text x="375" y="152" font-size="11" font-weight="bold">Produkte</text>
+                    <text x="175" y="23" font-size="10.5" font-weight="bold">Übergangszustand</text>
+                    <text x="235" y="73" font-size="10.5" font-weight="bold" fill="#16a34a">mit Katalysator</text>
+
+                    <line x1="95" y1="105" x2="95" y2="35" stroke="#dc2626" stroke-width="2.5"/>
+                    <text x="100" y="75" font-size="10.5" font-weight="bold" fill="#dc2626">Ea (hin)</text>
+
+                    <line x1="145" y1="105" x2="145" y2="158" stroke="#0284c7" stroke-width="2.5"/>
+                    <text x="150" y="138" font-size="10.5" font-weight="bold" fill="#0284c7">&Delta;H / &Delta;G (&lt; 0)</text>
+
+                    <line x1="295" y1="160" x2="295" y2="35" stroke="#4f46e5" stroke-width="2.5"/>
+                    <text x="300" y="95" font-size="10.5" font-weight="bold" fill="#4f46e5">Ea (rück)</text>
+                </svg>
+            </div>
+
+            <ul style="font-size: 0.88rem;">
+                <li><strong>Pfeil-Regel (2015–2020):</strong> Pfeile, die ganz unten an der x-Achse starten, sind <strong>immer falsch</strong>!</li>
+                <li><strong>E<sub>a</sub> (Hinreaktion, 2018):</strong> Vom Edukt-Niveau bis zum höchsten Punkt (Übergangszustand).</li>
+                <li><strong>E<sub>a</sub> (Rückreaktion, 2017):</strong> Vom Produkt-Niveau hoch bis zum Übergangszustand.</li>
+                <li><strong>Reaktionsenthalpie &Delta;H (2015, 2020):</strong> Differenz zwischen Edukt- und Produkt-Niveau.</li>
+                <li><strong>Zwei Berge im Diagramm (2023, 2024):</strong> Ist der 1. Berg höher als der 2. Berg, gilt eindeutig: <strong>„Der erste Schritt der Reaktion hat die höchste Aktivierungsenergie“</strong>!</li>
+                <li><strong>Katalysator &amp; Gleichgewicht (2009 #16):</strong> Ein Katalysator senkt nur E<sub>a</sub>, ändert aber <strong>nicht</strong> &Delta;H/&Delta;G und <strong>nicht</strong> die Gleichgewichtslage!</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Das Prinzip von Le Chatelier („Zwang ausweichen“)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Änderung</th>
+                        <th>Reaktion des Gleichgewichts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Druck erhöhen (p &uarr;)</strong></td>
+                        <td>Verschiebung zur Seite mit <strong>WENIGER Gasteilchen</strong>! <em>(Feststoffe wie C(s) zählen als 0 Gasteilchen!)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperatur erhöhen (T &uarr;)</strong></td>
+                        <td>Begünstigt die <strong>endotherme Richtung</strong>:<br>• Ist die Hinreaktion <strong>exotherm (&Delta;H &lt; 0)</strong>, schiebt T &uarr; nach <strong>LINKS (zu den Edukten)</strong>!</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Alle Le-Chatelier-Aufgaben aus Klausur &amp; Seminar (14, 15)</span>
+                <ul>
+                    <li><strong>Haber-Bosch: N<sub>2</sub> + 3 H<sub>2</sub> &rightleftharpoons; 2 NH<sub>3</sub> (&Delta;H = −92 kJ/mol, exotherm)</strong> <span class="pill">4x Klausur</span><br>
+                    Links 4 Gasteilchen, rechts 2 &rarr; Verschiebung zum Produkt NH<sub>3</sub> durch <strong>Erhöhung des Drucks</strong>!</li>
+                    <li><strong>Stickoxide: 2 NO<sub>2</sub> &rightleftharpoons; N<sub>2</sub>O<sub>4</sub> (&Delta;H = −62 kJ/mol, exotherm)</strong> <span class="pill">4x Klausur</span><br>
+                    • Mehr N<sub>2</sub>O<sub>4</sub> durch <strong>Erhöhung des Drucks</strong> (2 Gasteilchen &rarr; 1 Gasteilchen, 2019/2021).<br>
+                    • Warum verschiebt sich das Gleichgewicht bei T &uarr; zurück zu NO<sub>2</sub> (2023/2024)? <strong>Weil es sich um eine exotherme Reaktion handelt!</strong></li>
+                    <li><strong>Seminar 14: C(s) + CO<sub>2</sub>(g) &rightleftharpoons; 2 CO(g):</strong><br>
+                    C(s) ist ein Feststoff! Links 1 Gas (CO<sub>2</sub>), rechts 2 Gas (CO) &rarr; bei steigendem Druck Verschiebung nach <strong>links (zu CO<sub>2</sub>)</strong>!</li>
+                    <li><strong>Seminar 15a: N<sub>2</sub> + O<sub>2</sub> &rightleftharpoons; 2 NO (&Delta;H positiv = endotherm):</strong><br>
+                    Bei T &uarr; nach <strong>rechts</strong>; bei p &uarr; <strong>keine Änderung</strong> (links 2 Gas, rechts 2 Gas).</li>
+                    <li><strong>Seminar 15b: 2 CO + O<sub>2</sub> &rightleftharpoons; 2 CO<sub>2</sub> (&Delta;H negativ = exotherm):</strong><br>
+                    Bei T &uarr; nach <strong>links</strong>; bei p &uarr; nach <strong>rechts</strong> (3 Gas &rarr; 2 Gas).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- KAPITEL 8 -->
+    <div class="section-title" id="kl-komplexe">
+        <span>8. Löslichkeitsprodukt (K<sub>L</sub>) &amp; Komplexchemie</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Löslichkeitsprodukt (K<sub>L</sub>) berechnen</h3>
+            <p style="font-size: 0.9rem;">Für ein schwerlösliches Salz <code>A<sub>x</sub>B<sub>y</sub>(s) &rightleftharpoons; x A<sup>y+</sup>(aq) + y B<sup>x−</sup>(aq)</code> gilt:</p>
+            <div class="formula-block">
+                K<sub>L</sub> = [A<sup>y+</sup>]<sup>x</sup> &middot; [B<sup>x−</sup>]<sup>y</sup> &nbsp;&nbsp;(Der Feststoff steht NIE im Nenner!)
+            </div>
+
+            <ul>
+                <li><strong>Klausur 2015 #31 (Co<sub>3</sub>(AsO<sub>4</sub>)<sub>2</sub>):</strong> <code>K<sub>L</sub> = [Co<sup>2+</sup>]<sup>3</sup> &middot; [AsO<sub>4</sub><sup>3−</sup>]<sup>2</sup></code>.</li>
+                <li><strong>Beispielklausur (Einheit von K<sub>L</sub> bei BaSO<sub>4</sub>):</strong> BaSO<sub>4</sub> &rightleftharpoons; Ba<sup>2+</sup> + SO<sub>4</sub><sup>2−</sup> (2 Ionen) &rarr; <strong>mol<sup>2</sup> L<sup>−2</sup></strong>.</li>
+                <li><strong>1:1-Salz (AB &rarr; K<sub>L</sub> = s<sup>2</sup> &harr; s = &radic;K<sub>L</sub>):</strong><br>
+                • <strong>AgOH (K<sub>L</sub> = 2 &middot; 10<sup>−8</sup> mol<sup>2</sup>/L<sup>2</sup>, Klausur 2023/2024):</strong><br>
+                <code>s = &radic;(2 &middot; 10<sup>−8</sup>) = &radic;2 &middot; 10<sup>−4</sup> = <strong>1,4 &middot; 10<sup>−4</sup> mol/L</strong></code>.<br>
+                • <strong>AgCl (K<sub>L</sub> = 10<sup>−10</sup>, Seminar 38):</strong> In Wasser <code>s = 10<sup>−5</sup> mol/L</code>. In 100 mL (0,1 L) einer 10<sup>−3</sup> M NaCl-Lösung: <code>c(Ag+) = 10<sup>−10</sup> / 10<sup>−3</sup> = 10<sup>−7</sup> mol/L</code> &rarr; in 0,1 L lösen sich <strong>10<sup>−8</sup> mol</strong>.</li>
+                <li><strong>1:2-Salz (AB<sub>2</sub> &rarr; K<sub>L</sub> = s &middot; (2s)<sup>2</sup> = 4 &middot; s<sup>3</sup>):</strong><br>
+                • <strong>BaF<sub>2</sub> mit Löslichkeit s = 0,009 mol/L (Klausur 2018 #11):</strong><br>
+                <code>K<sub>L</sub> = 4 &middot; (0,009)<sup>3</sup> = 4 &middot; 7,29 &middot; 10<sup>−7</sup> = <strong>2,9 &middot; 10<sup>−6</sup> mol<sup>3</sup>/L<sup>3</sup></strong></code> (Falle: 7,3 &middot; 10<sup>−7</sup> hat den Faktor 4 vergessen!).</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Komplexe: Koordinationszahl (KZ) &amp; Oxidationszahl (OZ)</h3>
+            <p style="font-size: 0.9rem;"><strong>KZ</strong> = Anzahl der direkt ans Zentralmetall gebundenen Liganden-Donoratome.<br>
+            <strong>Liganden-Ladungen:</strong> <code>CN<sup>−</sup> = −1</code>, <code>Cl<sup>−</sup> = −1</code>, <code>SCN<sup>−</sup> = −1</code>, <code>Glycolat<sup>2−</sup> = −2</code> | <code>NH<sub>3</sub> = 0</code>, <code>H<sub>2</sub>O = 0</code>, <code>CO = 0</code>.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Komplex (Klausur &amp; Seminar 31)</th>
+                        <th>Ladungs-Rechnung</th>
+                        <th>Ergebnis (KZ / OZ)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>K<sub>4</sub>[Fe(CN)<sub>6</sub>]</strong> <span class="pill">2019, 2021, Bsp</span></td>
+                        <td>4&times;(+1) + Fe + 6&times;(−1) = 0</td>
+                        <td><strong>KZ = 6, OZ = +II</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>K<sub>3</sub>[Fe(CN)<sub>6</sub>]</strong> <span class="pill">2017</span></td>
+                        <td>3&times;(+1) + Fe + 6&times;(−1) = 0</td>
+                        <td><strong>KZ = 6, OZ = +III</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Al[Fe(CN)<sub>6</sub>]</strong> <span class="pill">2015</span></td>
+                        <td>1&times;(+3) + Fe + 6&times;(−1) = 0</td>
+                        <td><strong>KZ = 6, OZ = +III</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>K<sub>2</sub>[Ni(CN)<sub>4</sub>]</strong> <span class="pill">2018, 2020, 2025, Sem 31</span></td>
+                        <td>2&times;(+1) + Ni + 4&times;(−1) = 0</td>
+                        <td><strong>KZ = 4, OZ = +II</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>[PtCl<sub>2</sub>(NH<sub>3</sub>)<sub>2</sub>]</strong> &amp; Pt-Komplex <span class="pill">2023, 2024, Sem 31</span></td>
+                        <td>Pt + 2&times;(−1) + 2&times;(0) = 0</td>
+                        <td><strong>KZ = 4, OZ = +II</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>[Ni(CO)<sub>4</sub>]</strong> <span class="pill">Sem 31b</span><br><strong>[Cu(NH<sub>3</sub>)<sub>4</sub>]Cl<sub>2</sub></strong> <span class="pill">Sem 31c</span></td>
+                        <td>CO ist neutral (0)<br>Cu + 4&times;(0) + 2&times;(−1) = 0</td>
+                        <td>Ni: <strong>KZ = 4, OZ = 0</strong><br>Cu: <strong>KZ = 4, OZ = +II</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.85rem;"><em>Klausur 2009/2011 #15:</em> <code>[Fe(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup> + 2 SCN<sup>−</sup> &rarr; [Fe(H<sub>2</sub>O)<sub>4</sub>(SCN)<sub>2</sub>]<sup>+</sup> + 2 H<sub>2</sub>O</code> ist ein <strong>Ligandenaustausch</strong> (KZ bleibt 6, OZ bleibt +III).</p>
+        </div>
+    </div>
+
+    <!-- KAPITEL 9 -->
+    <div class="section-title" id="saeuren">
+        <span>9. Säuren, Basen, pH-Wert, Puffer &amp; Titrationskurven</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Säure-Base-Definitionen &amp; Die 4 pH-Formeln</h3>
+            <ul style="font-size: 0.88rem;">
+                <li><strong>Brønsted (2009, 2020, 2023, 2024):</strong> Säure = <strong>Protonendonator</strong> (gibt H<sup>+</sup> ab, z. B. HCl, H<sub>2</sub>SO<sub>4</sub>, Phenol); Base = <strong>Protonenakzeptor</strong> (nimmt H<sup>+</sup> auf, z. B. NH<sub>3</sub>, OH<sup>−</sup>, F<sup>−</sup>, Anilin, Amine).</li>
+                <li><strong>Lewis (2011 #26 &amp; Sem 7):</strong> Säure = <strong>Elektronenpaarakzeptor</strong> (hat Elektronenlücke: <strong>BF<sub>3</sub>, BBr<sub>3</sub>, AlCl<sub>3</sub></strong>, H<sup>+</sup>); Base = <strong>Elektronenpaardonator</strong> (hat freies Elektronenpaar: <strong>NH<sub>3</sub>, F<sup>−</sup></strong>).</li>
+                <li><strong>Stärke einer Base (2023/2024):</strong> Wird durch den <strong>pK<sub>B</sub>-Wert</strong> beschrieben. Basische Lösung hat <strong>pH &gt; 7</strong>.</li>
+                <li><strong>Amin vs. Amid in Wasser (2017 #39):</strong> Nur das <strong>Amin</strong> (<code>R–NH–R'</code>) reagiert in Wasser basisch (Amide sind neutral!).</li>
+            </ul>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Alle pH-Rechnungen für starke &amp; schwache Säuren</span>
+                <ol>
+                    <li><strong>Starke Säure: <code>pH = −lg c(H<sub>3</sub>O<sup>+</sup>)</code></strong> (Volumen L/mL ist völlig egal!)<br>
+                    • <strong>1,0 M HCl</strong> (2023, 2024, Bsp): <code>−lg(1) = <strong>pH 0</strong></code>.<br>
+                    • <strong>0,5 M H<sub>2</sub>SO<sub>4</sub> (Schwefelsäure, 4x Klausur!):</strong> Zweiprotonig! <code>c(H<sup>+</sup>) = 2 &times; 0,5 = 1,0 mol/L &rarr; <strong>pH 0</strong></code>!<br>
+                    • <strong>0,1 M HCl</strong> (2015, 2017, 2018): <code>−lg(10<sup>−1</sup>) = <strong>pH 1</strong></code>.<br>
+                    • <strong>10 mM (= 0,01 M) HCl</strong> (2025 #23): <code>−lg(10<sup>−2</sup>) = <strong>pH 2</strong></code>.<br>
+                    • <strong>0,02 M HCl</strong> (2009 #21): <code>c(OH<sup>−</sup>) = 10<sup>−14</sup> / 0,02 = <strong>5 &middot; 10<sup>−13</sup> mol/L</strong></code>.<br>
+                    • <strong>0,01 M NaOH</strong> (Seminar 9): <code>pOH = 2 &rarr; pH = 14 − 2 = <strong>12</strong></code>.</li>
+                    <li><strong>Schwache Säure (Klausur 2011 #3): <code>pH = &frac12; &middot; (pK<sub>S</sub> − lg c)</code> &harr; <code>pK<sub>S</sub> = 2 &middot; pH + lg c</code></strong><br>
+                    • <strong>1,0 M Essigsäure</strong> (pK<sub>S</sub> 4,76, Klausur 2018): <code>lg(1) = 0 &rarr; pH = &frac12; &middot; 4,76 = <strong>2,38</strong></code>.<br>
+                    • <strong>0,1 M Essigsäure</strong> (pK<sub>S</sub> 4,76, Klausur 2017): <code>lg(0,1) = −1 &rarr; pH = &frac12; &middot; (4,76 − (−1)) = <strong>2,88 (bzw. 2,87)</strong></code>.<br>
+                    • <strong>10 M Essigsäure</strong> (pK<sub>S</sub> 4,8, Klausur 2015): <code>lg(10) = +1 &rarr; pH = &frac12; &middot; (4,8 − 1) = <strong>1,90</strong></code>.<br>
+                    • <strong>0,1 M HF</strong> (pK<sub>S</sub> 3,2, Seminar 10): <code>pH = &frac12; &middot; (3,2 − (−1)) = <strong>2,10</strong></code>.<br>
+                    • <strong>Rückwärts nach pK<sub>S</sub>:</strong> 1 M HX mit pH 3,80 (2011) &rarr; <code>pK<sub>S</sub> = 2 &times; 3,80 + 0 = <strong>7,6</strong></code> | 0,1 M HX mit pH 3,30 (2009) &rarr; <code>pK<sub>S</sub> = 2 &times; 3,30 + (−1) = <strong>5,60</strong></code>.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Puffer (Henderson-Hasselbalch) &amp; Titrationskurven</h3>
+            <div class="formula-block">
+                Puffergleichung (2009 #1): pH = pK<sub>S</sub> + lg( [korr. Base] / [korr. Säure] )
+            </div>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Alle 5 Puffer-Aufgaben der Klausuren gelöst</span>
+                <ul>
+                    <li><strong>1. Phosphatpuffer pH 8,20 (pK<sub>S</sub> = 7,20, 1 L 1 M Na<sub>2</sub>HPO<sub>4</sub> vorgelegt, 5x in Klausur &amp; Sem 45!):</strong><br>
+                    <code>8,20 = 7,20 + lg(Base / Säure) &rarr; lg(Base / Säure) = 1 &rarr; Base / Säure = 10 / 1</code>.<br>
+                    Da 1 mol Base (Na<sub>2</sub>HPO<sub>4</sub>) vorliegt, braucht man 1/10 davon an Säure = <strong>0,1 mol NaH<sub>2</sub>PO<sub>4</sub></strong>!</li>
+                    <li><strong>2. Acetatpuffer pH 4,76 aus 100 mL 0,1 M Essigsäure (pK<sub>S</sub> = 4,76, Klausur 2025 #6):</strong><br>
+                    Da <code>pH = pK<sub>S</sub></code>, muss <code>Base = Säure</code> sein (1:1). <code>n(Essigsäure) = 0,1 M &times; 0,1 L = 0,01 mol</code>.<br>
+                    Masse Natriumacetat (M = 82 g/mol): <code>0,01 mol &times; 82 g/mol = <strong>0,82 g</strong></code> (Falle: 0,00 g!).</li>
+                    <li><strong>3. Acetatpuffer pH 5,0 aus 1 L 0,5 M Essigsäure (pK<sub>S</sub> = 4,76, Klausur 2015 #35):</strong><br>
+                    <code>Base / Säure = 10<sup>(5,0 − 4,76)</sup> = 10<sup>0,24</sup> = 1,74</code> &rarr; <code>n(Acetat) = 1,74 &times; 0,5 mol = 0,87 mol &times; 82 g/mol = <strong>71,3 g</strong></code>.</li>
+                    <li><strong>4. Phosphorsäure (H<sub>3</sub>PO<sub>4</sub>) + feste NaOH auf pH 7,2 (= pK<sub>S2</sub>) bringen (2017/2018):</strong><br>
+                    Man braucht genau <strong>1,5 Äquivalente NaOH</strong> pro Mol H<sub>3</sub>PO<sub>4</sub>:<br>
+                    • Bei <strong>50 mL 0,5 M H<sub>3</sub>PO<sub>4</sub></strong> (2018 #15): <code>0,025 mol &times; 1,5 &times; 40 g/mol = <strong>1,5 g NaOH</strong></code>.<br>
+                    • Bei <strong>100 mL 0,5 M H<sub>3</sub>PO<sub>4</sub></strong> (2017 #32): <code>0,050 mol &times; 1,5 &times; 40 g/mol = <strong>3,0 g NaOH</strong></code>.</li>
+                </ul>
+            </div>
+
+            <h4>Titrationskurven erkennen (Klausur 2009, 2019, 2021)</h4>
+            <ul style="font-size: 0.88rem;">
+                <li><strong>Kurve startet oben bei pH 13 und fällt steil durch pH 7 auf pH 1 (2019 #21, 2021 #20):</strong><br>
+                Richtige Antwort: <strong>„Zugabe einer starken Säure zu einer starken Base“</strong>!</li>
+                <li><strong>Titration einer schwachen Säure mit NaOH (2009 #22):</strong><br>
+                • Bei halbem NaOH-Volumen (Halbäquivalenzpunkt B): flacher Pufferbereich mit <strong>pH = pK<sub>S</sub></strong>.<br>
+                • Am <strong>Äquivalenzpunkt (Punkt C</strong>, steiler senkrechter Sprung): liegt im Basischen bei <strong>pH &gt; 7 (ca. 8,5–9)</strong>!</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function downloadHTML() {
+    const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ac_teil2_reines_html.html";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
